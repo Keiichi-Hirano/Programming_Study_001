@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# vim:fenc=utf-8
 import sys
 from datetime import *
 from time import *
@@ -48,8 +49,10 @@ def main():
 # print ("{}は{}曜日です".format(user_input_date,yobi[a.weekday()]))
     space = " "
     header = ""
+    count = 0
     while user_input_date != "bye":
         try:
+            count += 1
             delta = datetime.strptime(user_input_date,'%Y/%m')
             month_day = calendar.monthrange(delta.year, delta.month)
             dayint = month_day[0] + 1
@@ -72,7 +75,9 @@ def main():
                 if de == 0:
                     print (line) 
                     line = ""
+            print (count)
             print (line) 
+
         except ValueError:
             print ("誤った日付です")
         user_input_date = input("your date :")
